@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { data } from "../../pages/data";
+import { data } from "../../../data";
 import Image from "next/image";
 
 function Images() {
@@ -31,22 +31,28 @@ function Images() {
   return (
     <div className="h-full">
       <div className="relative md:w-[400px] md:h-[400px] w-[100%] h-auto object-contain ">
-        <img
+        <Image
           className="rounded-0 md:rounded-2xl"
-          src={products[index - 1].mainImage}
+          src={`/images/image-product-${products[index - 1].id}.jpg`}
           alt="image"
+          fill
         />
         <button
           className="flex md:hidden absolute top-2/4 left-6 bg-white justify-center items-center p-4 rounded-full"
           onClick={decrementImage}
         >
-          <img src="/images/icon-previous.svg" alt="" />
+          <Image
+            src="/images/icon-previous.svg"
+            alt=""
+            width={16}
+            height={16}
+          />
         </button>
         <button
           className="flex md:hidden absolute top-2/4 right-6 bg-white justify-center items-center p-4 rounded-full"
           onClick={incrementImage}
         >
-          <img src="/images/icon-next.svg" alt="" />
+          <Image src="/images/icon-next.svg" alt="" width={16} height={16} />
         </button>
       </div>
       <div className="h-auto mt-0 md:mt-8 flex justify-center md:ml-0">
